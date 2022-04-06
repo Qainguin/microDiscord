@@ -1,6 +1,16 @@
 enum RadioMessage {
     message1 = 49434
 }
+input.onPinPressed(TouchPin.P0, function () {
+    radio.setGroup(2)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # . # .
+        . . . . .
+        . . . . .
+        `)
+})
 // message +1
 input.onButtonPressed(Button.A, function () {
     messageContainer += 1
@@ -19,6 +29,16 @@ input.onButtonPressed(Button.A, function () {
     } else {
     	
     }
+})
+input.onPinPressed(TouchPin.P2, function () {
+    radio.setGroup(1)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . . . . .
+        . . . . .
+        `)
 })
 // sends string
 input.onButtonPressed(Button.AB, function () {
@@ -47,9 +67,26 @@ input.onButtonPressed(Button.B, function () {
     	
     }
 })
+input.onPinPressed(TouchPin.P1, function () {
+    radio.setGroup(3)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # # # .
+        . . . . .
+        . . . . .
+        `)
+})
 let stringContainer = ""
 let messageContainer = 0
 radio.setGroup(1)
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
 // makes it so that if messageContainer is less than 0 it will become 0
 basic.forever(function () {
     if (messageContainer < 0) {
