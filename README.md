@@ -18,12 +18,10 @@ To edit this repository in MakeCode.
 * click on **Import** then click on **Import URL**
 * paste **https://github.com/qainguin/microdiscord** and click import
 
-## Blocks preview
+## How To Use
 
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
-
-![A rendered view of the blocks](https://github.com/qainguin/microdiscord/raw/master/.github/makecode/blocks.png)
+To use this piece of code, you will want to press A to go to the next message option and press B to go to the previous message option.
+Press A+B at the same time to send the message.
 
 #### Metadata (used for search, rendering)
 
