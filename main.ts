@@ -14,45 +14,7 @@ input.onPinPressed(TouchPin.P0, function () {
 // message -1
 input.onButtonPressed(Button.A, function () {
     messageContainer += 1
-    if (messageContainer == 1) {
-        stringContainer = "Hello!"
-        basic.showString("Hello!")
-    } else if (messageContainer == 2) {
-        stringContainer = "Where r u?"
-        basic.showString("Where r u?")
-    } else if (messageContainer == 3) {
-        stringContainer = "BRB"
-        basic.showString("BRB")
-    } else if (messageContainer == 4) {
-        stringContainer = "WYD?"
-        basic.showString("WYD?")
-    } else if (messageContainer == 5) {
-        stringContainer = "NTHG Much"
-        basic.showString("NTHG Much")
-    } else if (messageContainer == 6) {
-        stringContainer = "Wrking"
-        basic.showString("Wrking")
-    } else if (messageContainer == 7) {
-        stringContainer = "At School"
-        basic.showString("At School")
-    } else if (messageContainer == 8) {
-        stringContainer = "Come Here"
-        basic.showString("Come Here")
-    } else if (messageContainer == 9) {
-        stringContainer = "U Good?"
-        basic.showString("U Good?")
-    } else if (messageContainer == 10) {
-        stringContainer = "Yeah"
-        basic.showString("Yeah")
-    } else if (messageContainer == 11) {
-        stringContainer = "Not really"
-        basic.showString("Not really")
-    } else if (messageContainer == 12) {
-        stringContainer = "Good Night"
-        basic.showString("Good Night")
-    } else if (messageContainer > 12) {
-        messageContainer = 0
-    }
+    messagePicker()
 })
 input.onPinPressed(TouchPin.P2, function () {
     radio.setGroup(1)
@@ -75,6 +37,19 @@ radio.onReceivedString(function (receivedString) {
 // message -1
 input.onButtonPressed(Button.B, function () {
     messageContainer += -1
+    messagePicker()
+})
+input.onPinPressed(TouchPin.P1, function () {
+    radio.setGroup(3)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # # # .
+        . . . . .
+        . . . . .
+        `)
+})
+function messagePicker () {
     if (messageContainer == 1) {
         stringContainer = "Hello!"
         basic.showString("Hello!")
@@ -114,17 +89,7 @@ input.onButtonPressed(Button.B, function () {
     } else if (messageContainer > 12) {
         messageContainer = 0
     }
-})
-input.onPinPressed(TouchPin.P1, function () {
-    radio.setGroup(3)
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . # # # .
-        . . . . .
-        . . . . .
-        `)
-})
+}
 let stringContainer = ""
 let messageContainer = 0
 radio.setGroup(1)
